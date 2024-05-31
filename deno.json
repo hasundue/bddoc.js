@@ -6,13 +6,23 @@
   },
   "publish": {
     "exclude": [
-      ".github",
-      "**/*_test.ts"
+      ".github"
     ]
   },
   "tasks": {
     "check": "deno fmt -q && deno lint -q && deno check -q **/*.ts",
-    "test": "deno test --allow-read --allow-write=/tmp --no-check",
-    "pre-commit": "deno task check && deno task test"
+    "doc": "deno run --allow-env --allow-ffi --allow-read --allow-run=deno --allow-sys --allow-write=README.md ./docs/build.ts",
+    "test": "deno test --allow-env --allow-ffi --allow-read --allow-sys --no-check",
+    "pre-commit": "deno task check && deno task test && deno task doc"
+  },
+  "imports": {
+    "@core/match": "jsr:@core/match@^0.3.1",
+    "@std/assert": "jsr:@std/assert@^0.225.3",
+    "@std/collections": "jsr:@std/collections@^0.224.2",
+    "@std/testing": "jsr:@std/testing@^0.224.0",
+    "@swc/core": "npm:@swc/core@^1.5.24",
+    "@swc/types": "npm:@swc/types@^0.1.7",
+    "compromise": "npm:compromise@^14.13.0",
+    "dedent": "npm:dedent@^1.5.3"
   }
 }
