@@ -22,7 +22,6 @@
     "@std/testing": "jsr:@std/testing@^0.224.0",
     "@swc/core": "npm:@swc/core@^1.5.24",
     "@swc/types": "npm:@swc/types@^0.1.7",
-    "compromise": "npm:compromise@^14.13.0",
     "dedent": "npm:dedent@^1.5.3"
   }
 }

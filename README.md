@@ -1,7 +1,7 @@
 # bddoc.js
 
-A library to transform `describe` and `it` blocks in JavaScript/TypeScript into
-markdown documentation.
+A TypeScript/JavaScript library to generate markdown documentation from test
+codes in BDD style.
 
 > [!WARNING]\
 > Alpha version. Not tested extensively yet. APIs may change frequently.
@@ -17,7 +17,7 @@ import { parse, transform } from "jsr:@chiezo/bddoc";
 
 ### `transform`
 
-Transforms tests to documentation:
+To transform tests to documentation:
 
 ```typescript
 assertEquals(
@@ -30,7 +30,7 @@ assertEquals(
 
 ### `parse`
 
-Parse `describe` and `it`:
+To parse `describe` and `it`:
 
 ```typescript
 const describes = await parse(

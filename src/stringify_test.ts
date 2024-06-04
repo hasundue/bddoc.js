@@ -8,24 +8,31 @@ import stringify, {
 import dedent from "dedent";
 
 describe("defaultFormatter", () => {
+  it("should do nothing to an empty string", () => {
+    assertEquals(
+      defaultFormatter(""),
+      "",
+    );
+  });
+
   it("should format a positive sentence", () => {
     assertEquals(
       defaultFormatter("should do something"),
-      "Does something",
+      "To do something",
     );
   });
 
   it("should format a negative sentence", () => {
     assertEquals(
       defaultFormatter("should not do something"),
-      "Won't do something",
+      "Not to do something",
     );
   });
 
   it("should format a conjugated negative sentence", () => {
     assertEquals(
       defaultFormatter("shouldn't do something"),
-      "Won't do something",
+      "Not to do something",
     );
   });
 });
@@ -41,7 +48,7 @@ describe("stringifyIt", () => {
         `,
       }),
       dedent`
-        Does something:
+        To do something:
 
         \`\`\`typescript
         console.log("foo");
@@ -77,14 +84,14 @@ describe("stringifyDescribe", () => {
       dedent`
         ### \`foo\`
 
-        Does something:
+        To do something:
 
         \`\`\`typescript
         console.log("foo");
         assert("foo" !== "bar");
         \`\`\`
 
-        Won't do something else:
+        Not to do something else:
 
         \`\`\`typescript
         console.log("bar");
@@ -127,7 +134,7 @@ describe("stringify", () => {
       dedent`
         ### \`foo\`
 
-        Does something:
+        To do something:
 
         \`\`\`typescript
         console.log("foo");
@@ -136,7 +143,7 @@ describe("stringify", () => {
 
         ### \`bar\`
 
-        Won't do something else:
+        Not to do something else:
 
         \`\`\`typescript
         console.log("bar");

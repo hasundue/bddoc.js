@@ -1,6 +1,5 @@
 import type { Describe, It } from "./types.ts";
 import dedent from "dedent";
-import nlp from "compromise";
 
 /**
  * Options for stringifying a describe object.
@@ -13,31 +12,32 @@ export interface StringifyOptions {
   heading?: number;
   /**
    * A function to format the behavior of an it. By default, it will remove
-   * `should` from the beginning, transform the first word to the present
-   * tense or future tense for negation, and capitalize the first letter.
+   * `should` from the beginning, and nornalize the verb by adding `To` at the
+   * beginning.
    */
   format?: (behavior: string) => string;
 }
 
-export const defaultFormatter = (behavior: string) => {
-  const words = behavior.split(" ");
-  if (words[0].toLocaleLowerCase() === "should") {
-    words.shift();
-  }
-  if (words[0] === "not" || words[0] === "shouldn't") {
-    words[0] = "won't";
-  } else {
-    words[0] = toThirdPersonSingular(words[0]);
-  }
-  words[0] = toTitleCase(words[0]);
-  return words.join(" ");
-};
-
-const toThirdPersonSingular = (verb: string) =>
-  nlp(verb).sentences().toPresentTense().text();
-
 const toTitleCase = (word: string) =>
   word[0].toLocaleUpperCase() + word.slice(1);
+
+export const defaultFormatter = (behavior: string) => {
+  let words = behavior.split(" ").filter((word) => word.trim().length);
+  if (!words.length) {
+    return behavior;
+  }
+  const first = () => words[0].toLocaleLowerCase();
+  if (first() === "should") {
+    words.shift();
+  }
+  if (first() === "shouldn't" || first() === "not") {
+    words = ["not", "to", ...words.slice(1)];
+  } else {
+    words = ["to", ...words];
+  }
+  words[0] = toTitleCase(first());
+  return words.join(" ");
+};
 
 export function stringifyDescribe(
   describe: Describe,

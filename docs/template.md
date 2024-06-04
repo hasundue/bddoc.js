@@ -1,7 +1,7 @@
 # bddoc.js
 
-A library to transform `describe` and `it` blocks in JavaScript/TypeScript into
-markdown documentation.
+A TypeScript/JavaScript library to generate markdown documentation from test
+codes in BDD style.
 
 > [!WARNING]\
 > Alpha version. Not tested extensively yet. APIs may change frequently.
