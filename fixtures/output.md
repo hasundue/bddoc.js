@@ -1,6 +1,6 @@
 ### `foo`
 
-To do something:
+Do something:
 
 ```typescript
 assertEquals("foo", "foo");
@@ -8,13 +8,13 @@ assertEquals("foo", "foo");
 
 ### `bar`
 
-To do something else:
+Do something else:
 
 ```typescript
 assertEquals("bar", "bar");
 ```
 
-Not to do something more:
+Won't do something more:
 
 ```typescript
 assertNotEquals("bar", "baz");

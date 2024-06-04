@@ -3,7 +3,7 @@ import { describe, it } from "@std/testing/bdd";
 import parse from "./parse.ts";
 
 describe("parse", () => {
-  it("should parse `describe` and `it`", async () => {
+  it("should parse `describe` and `it` from tests", async () => {
     const describes = await parse(
       await Deno.readTextFile("./fixtures/input.ts"),
     );

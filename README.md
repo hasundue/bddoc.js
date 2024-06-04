@@ -17,7 +17,7 @@ import { parse, transform } from "jsr:@chiezo/bddoc";
 
 ### `transform`
 
-To transform tests to documentation:
+Transform tests to documentation:
 
 ```typescript
 assertEquals(
@@ -30,7 +30,7 @@ assertEquals(
 
 ### `parse`
 
-To parse `describe` and `it`:
+Parse `describe` and `it` from tests:
 
 ```typescript
 const describes = await parse(

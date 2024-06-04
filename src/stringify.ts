@@ -18,25 +18,20 @@ export interface StringifyOptions {
   format?: (behavior: string) => string;
 }
 
-const toTitleCase = (word: string) =>
-  word[0].toLocaleUpperCase() + word.slice(1);
-
 export const defaultFormatter = (behavior: string) => {
-  let words = behavior.split(" ").filter((word) => word.trim().length);
-  if (!words.length) {
+  if (behavior.startsWith("should")) {
+    behavior = behavior.slice(6).trimStart();
+  } else {
     return behavior;
   }
-  const first = () => words[0].toLocaleLowerCase();
-  if (first() === "should") {
-    words.shift();
+  if (behavior.startsWith("be ")) {
+    behavior = behavior.slice(3);
+  } else if (behavior.startsWith("n't be ") || behavior.startsWith("not be ")) {
+    behavior = "not " + behavior.slice(7);
+  } else if (behavior.startsWith("n't ") || behavior.startsWith("not ")) {
+    behavior = "won't " + behavior.slice(4);
   }
-  if (first() === "shouldn't" || first() === "not") {
-    words = ["not", "to", ...words.slice(1)];
-  } else {
-    words = ["to", ...words];
-  }
-  words[0] = toTitleCase(first());
-  return words.join(" ");
+  return behavior[0].toLocaleUpperCase() + behavior.slice(1);
 };
 
 export function stringifyDescribe(

@@ -15,24 +15,52 @@ describe("defaultFormatter", () => {
     );
   });
 
-  it("should format a positive sentence", () => {
+  it("should do nothing to a string without `should`", () => {
+    assertEquals(
+      defaultFormatter("do something"),
+      "do something",
+    );
+  });
+
+  it("should replace `should` with `to`", () => {
     assertEquals(
       defaultFormatter("should do something"),
-      "To do something",
+      "Do something",
     );
   });
 
-  it("should format a negative sentence", () => {
+  it("should replace `should not do` with `Won't`", () => {
     assertEquals(
       defaultFormatter("should not do something"),
-      "Not to do something",
+      "Won't do something",
     );
   });
 
-  it("should format a conjugated negative sentence", () => {
+  it("should replace `shouldn't do` with `Won't do`", () => {
     assertEquals(
       defaultFormatter("shouldn't do something"),
-      "Not to do something",
+      "Won't do something",
+    );
+  });
+
+  it("should remove `should be`", () => {
+    assertEquals(
+      defaultFormatter("should be testable"),
+      "Testable",
+    );
+  });
+
+  it("should replace `should not be` with `Not`", () => {
+    assertEquals(
+      defaultFormatter("should not be testable"),
+      "Not testable",
+    );
+  });
+
+  it("should replace `shouldn't be` with `Not`", () => {
+    assertEquals(
+      defaultFormatter("shouldn't be testable"),
+      "Not testable",
     );
   });
 });
@@ -48,7 +76,7 @@ describe("stringifyIt", () => {
         `,
       }),
       dedent`
-        To do something:
+        Do something:
 
         \`\`\`typescript
         console.log("foo");
@@ -84,14 +112,14 @@ describe("stringifyDescribe", () => {
       dedent`
         ### \`foo\`
 
-        To do something:
+        Do something:
 
         \`\`\`typescript
         console.log("foo");
         assert("foo" !== "bar");
         \`\`\`
 
-        Not to do something else:
+        Won't do something else:
 
         \`\`\`typescript
         console.log("bar");
@@ -134,7 +162,7 @@ describe("stringify", () => {
       dedent`
         ### \`foo\`
 
-        To do something:
+        Do something:
 
         \`\`\`typescript
         console.log("foo");
@@ -143,7 +171,7 @@ describe("stringify", () => {
 
         ### \`bar\`
 
-        Not to do something else:
+        Won't do something else:
 
         \`\`\`typescript
         console.log("bar");
