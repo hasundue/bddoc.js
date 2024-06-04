@@ -29,17 +29,17 @@ describe("defaultFormatter", () => {
     );
   });
 
-  it("should replace `should not do` with `Won't`", () => {
+  it("should replace `should not do` with `Not`", () => {
     assertEquals(
       defaultFormatter("should not do something"),
-      "Won't do something",
+      "Not do something",
     );
   });
 
-  it("should replace `shouldn't do` with `Won't do`", () => {
+  it("should replace `shouldn't do` with `Not do`", () => {
     assertEquals(
       defaultFormatter("shouldn't do something"),
-      "Won't do something",
+      "Not do something",
     );
   });
 
@@ -119,7 +119,7 @@ describe("stringifyDescribe", () => {
         assert("foo" !== "bar");
         \`\`\`
 
-        Won't do something else:
+        Not do something else:
 
         \`\`\`typescript
         console.log("bar");
@@ -171,7 +171,7 @@ describe("stringify", () => {
 
         ### \`bar\`
 
-        Won't do something else:
+        Not do something else:
 
         \`\`\`typescript
         console.log("bar");

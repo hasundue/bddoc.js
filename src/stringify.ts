@@ -29,7 +29,7 @@ export const defaultFormatter = (behavior: string) => {
   } else if (behavior.startsWith("n't be ") || behavior.startsWith("not be ")) {
     behavior = "not " + behavior.slice(7);
   } else if (behavior.startsWith("n't ") || behavior.startsWith("not ")) {
-    behavior = "won't " + behavior.slice(4);
+    behavior = "not " + behavior.slice(4);
   }
   return behavior[0].toLocaleUpperCase() + behavior.slice(1);
 };

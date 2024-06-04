@@ -12,14 +12,14 @@ const describePattern = {
     callee: { type: "Identifier", value: "describe" },
     arguments: [
       { expression: { value: _("target") } },
-      { expression: { body: { stmts: _("its") } } },
+      { expression: { body: { stmts: _("stmts") } } },
     ],
   },
 };
 
 type DescribePrecursor = {
   target: string;
-  its: Statement[];
+  stmts: Statement[];
 };
 
 const itPattern = {
@@ -29,14 +29,14 @@ const itPattern = {
     callee: { type: "Identifier", value: "it" },
     arguments: [
       { expression: { value: _("behavior") } },
-      { expression: { body: { stmts: _("code") } } },
+      { expression: { body: { stmts: _("stmts") } } },
     ],
   },
 };
 
 type ItPrecursor = {
   behavior: string;
-  code: Statement[];
+  stmts: Statement[];
 };
 
 /**
@@ -44,25 +44,25 @@ type ItPrecursor = {
  * @param src The test code string.
  */
 export default async function parse(src: string): Promise<Describe[]> {
-  const tree = await swc.parse(src, {
+  const { body, span } = await swc.parse(src, {
     comments: true,
     syntax: "typescript",
   });
   const getSpan = (stmt: Statement) => ({
-    start: stmt.span.start - tree.span.start,
-    end: stmt.span.end - tree.span.start,
+    start: stmt.span.start - span.start,
+    end: stmt.span.end - span.start,
   });
   return mapNotNullish(
-    tree.body,
+    body,
     (item) => match(describePattern, item) as DescribePrecursor | undefined,
-  ).map(({ target, its }) => ({
+  ).map(({ target, stmts }) => ({
     target,
     its: mapNotNullish(
-      its,
+      stmts,
       (it) => match(itPattern, it) as ItPrecursor | undefined,
-    ).map(({ behavior, code }) => ({
+    ).map(({ behavior, stmts }) => ({
       behavior,
-      code: code.map((stmt) => {
+      code: stmts.map((stmt) => {
         const { start, end } = getSpan(stmt);
         return src.slice(start, end);
       }).join("\n"),

@@ -14,7 +14,7 @@ Do something else:
 assertEquals("bar", "bar");
 ```
 
-Won't do something more:
+Not do something more:
 
 ```typescript
 assertNotEquals("bar", "baz");
