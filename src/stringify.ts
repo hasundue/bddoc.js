@@ -44,7 +44,7 @@ export function stringifyDescribe(
   options: StringifyOptions = {},
 ): string {
   return dedent`
-    ${"#".repeat(options.heading ?? 3)} ${describe.target}
+    ${"#".repeat(options.heading ?? 3)} \`${describe.target}\`
     
     ${describe.its.map((it) => stringifyIt(it, options)).join("\n\n")}
   `;

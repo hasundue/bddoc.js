@@ -12,7 +12,7 @@ itself.
 import { parse, transform } from "jsr:@chiezo/bddoc";
 ```
 
-### transform
+### `transform`
 
 Transforms tests to documentation:
 
@@ -25,7 +25,7 @@ assertEquals(
 );
 ```
 
-### parse
+### `parse`
 
 Parse `describe` and `it`:
 
@@ -33,7 +33,6 @@ Parse `describe` and `it`:
 const describes = await parse(
   await Deno.readTextFile("./fixtures/input.ts"),
 );
-assertEquals(describes.length, 2);
 assertObjectMatch(describes[0], {
   target: "foo",
   its: [

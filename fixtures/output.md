@@ -1,4 +1,4 @@
-### foo
+### `foo`
 
 Does something:
 
@@ -6,7 +6,7 @@ Does something:
 assertEquals("foo", "foo");
 ```
 
-### bar
+### `bar`
 
 Does something else:
 

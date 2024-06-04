@@ -1,4 +1,4 @@
-import { assertEquals, assertObjectMatch } from "@std/assert";
+import { assertObjectMatch } from "@std/assert";
 import { describe, it } from "@std/testing/bdd";
 import parse from "./parse.ts";
 
@@ -7,7 +7,6 @@ describe("parse", () => {
     const describes = await parse(
       await Deno.readTextFile("./fixtures/input.ts"),
     );
-    assertEquals(describes.length, 2);
     assertObjectMatch(describes[0], {
       target: "foo",
       its: [

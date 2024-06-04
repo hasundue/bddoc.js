@@ -75,7 +75,7 @@ describe("stringifyDescribe", () => {
         ],
       }),
       dedent`
-        ### foo
+        ### \`foo\`
 
         Does something:
 
@@ -125,7 +125,7 @@ describe("stringify", () => {
         },
       ]),
       dedent`
-        ### foo
+        ### \`foo\`
 
         Does something:
 
@@ -134,7 +134,7 @@ describe("stringify", () => {
         assert("foo" !== "bar");
         \`\`\`
 
-        ### bar
+        ### \`bar\`
 
         Won't do something else:
 
