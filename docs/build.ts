@@ -2,7 +2,7 @@ import { transform } from "../mod.ts";
 
 Deno.chdir(new URL("../", import.meta.url));
 
-const template = await Deno.readTextFile("./docs/template.md");
+const template = await Deno.readTextFile("./docs/readme.md");
 
 const output = template
   .replace(
