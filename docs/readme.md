@@ -6,15 +6,41 @@ codes in BDD style.
 > [!WARNING]\
 > Alpha version. Not tested extensively yet. APIs may change frequently.
 
-As an example, the usage below is generated from the actual tests with `bddoc`
-itself.
-
 ## Usage
 
+### Deno
+
+```sh
+deno add jsr:@chiezo/bddoc
+```
+
+## APIs
+
+> [!NOTE]\
+> This section is generated with `bddoc` itself from `transform_test.ts` and
+> `parse_test.ts`.
+
 ```typeScript
-import { parse, transform } from "jsr:@chiezo/bddoc";
+import { parse, transform } from "@chiezo/bddoc";
 ```
 
 <!-- transform -->
 
 <!-- parse -->
+
+## Todo
+
+- Runtimes
+  - [ ] Browsers
+  - [ ] Bun
+  - [x] Deno
+  - [ ] Node.js
+- Test Interfaces
+  - [ ] `Deno.test`
+  - [x] `describe` `it`
+- Assertion Interfaces
+  - [ ] `@std/assert`
+  - [ ] `expect`
+- Backend
+  - [x] Built-in (rule-based)
+  - [ ] LLM (?)
