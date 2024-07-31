@@ -16,7 +16,7 @@
       "jsr:@std/path@1.0.0-rc.2": "jsr:@std/path@1.0.0-rc.2",
       "jsr:@std/path@^1.0.1": "jsr:@std/path@1.0.1",
       "jsr:@std/testing@^0.225.0": "jsr:@std/testing@0.225.3",
-      "npm:@swc/core@^1.5.24": "npm:@swc/core@1.7.2",
+      "npm:@swc/core@^1.5.24": "npm:@swc/core@1.7.4",
       "npm:@swc/types@^0.1.7": "npm:@swc/types@0.1.12",
       "npm:dedent@^1.5.3": "npm:dedent@1.5.3",
       "npm:ts-toolbelt@9.6.0": "npm:ts-toolbelt@9.6.0"
@@ -85,8 +85,8 @@
       }
     },
     "npm": {
-      "@swc/core@1.7.2": {
-        "integrity": "sha512-mjIlT0e6ygKR8LZ1TjtNrDVMhnB8qpyYAdwexhuVHY255yDdDQCpuPGi20odwnE82QhFBSIWs4HcENDVO/yiMw==",
+      "@swc/core@1.7.4": {
+        "integrity": "sha512-+wSycNxOw9QQz81AJAZlNS34EtOIifwUXMPACg05PWjECsjOKDTXLCVPx6J0lRaxhHSGBU2OYs9mRfIvxGt3CA==",
         "dependencies": {
           "@swc/counter": "@swc/counter@0.1.3",
           "@swc/types": "@swc/types@0.1.12"
