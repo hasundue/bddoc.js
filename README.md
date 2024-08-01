@@ -30,7 +30,7 @@ Transform tests to documentation:
 
 ```typescript
 assertEquals(
-  await transform(
+  transform(
     await Deno.readTextFile("./fixtures/input.ts"),
   ),
   await Deno.readTextFile("./fixtures/output.md"),
@@ -42,7 +42,7 @@ assertEquals(
 Parse `describe` and `it` from tests:
 
 ```typescript
-const describes = await parse(
+const describes = parse(
   await Deno.readTextFile("./fixtures/input.ts"),
 );
 assertObjectMatch(describes[0], {
