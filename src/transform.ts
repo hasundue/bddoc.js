@@ -14,9 +14,9 @@ export interface TransformOptions extends StringifyOptions {
  * @param src The test code string.
  * @param options The options for transforming.
  */
-export default async function transform(
+export default function transform(
   src: string,
   options: TransformOptions = {},
-): Promise<string> {
-  return stringify(await parse(src), options);
+): string {
+  return stringify(parse(src), options);
 }

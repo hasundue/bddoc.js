@@ -1,9 +1,9 @@
 import { match, placeholder as _ } from "@core/match";
 import { mapNotNullish } from "@std/collections";
-import type { Statement } from "@swc/types";
-// @deno-types="@swc/core";
-import * as swc from "@swc/core";
+import initSwc, { parseSync, type Statement } from "@swc/wasm-web";
 import type { Describe } from "./types.ts";
+
+await initSwc();
 
 const describePattern = {
   type: "ExpressionStatement",
@@ -43,8 +43,8 @@ type ItPrecursor = {
  * Parse a test code string to an array of describe objects.
  * @param src The test code string.
  */
-export default async function parse(src: string): Promise<Describe[]> {
-  const { body, span } = await swc.parse(src, {
+export default function parse(src: string): Describe[] {
+  const { body, span } = parseSync(src, {
     comments: true,
     syntax: "typescript",
   });
