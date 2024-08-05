@@ -13,7 +13,7 @@
       "jsr:@std/internal@^1.0.1": "jsr:@std/internal@1.0.1",
       "jsr:@std/path@^1.0.2": "jsr:@std/path@1.0.2",
       "jsr:@std/testing@^1.0.0": "jsr:@std/testing@1.0.0",
-      "npm:@swc/wasm-web@^1.7.4": "npm:@swc/wasm-web@1.7.4",
+      "npm:@swc/wasm-web@^1.7.4": "npm:@swc/wasm-web@1.7.6",
       "npm:dedent@^1.5.3": "npm:dedent@1.5.3",
       "npm:ts-toolbelt@9.6.0": "npm:ts-toolbelt@9.6.0"
     },
@@ -68,8 +68,8 @@
       }
     },
     "npm": {
-      "@swc/wasm-web@1.7.4": {
-        "integrity": "sha512-tKpJSy2rpkPuxPPP2QoMlUHoJU9w2NIaY5q7iVgSmOEAsiCLKS443DYhs7ig4ftMtJmTwymC/Un3oHJ2Z2Xvcg==",
+      "@swc/wasm-web@1.7.6": {
+        "integrity": "sha512-563ZjjTfRDILbNgJtfiihzNeiznQP4Q52YKfmNjHNGuG3wAhmL604zj3lh6VnF6DpVlzQffMLX5r1Wya2kumWQ==",
         "dependencies": {}
       },
       "dedent@1.5.3": {
